@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { Offline, Online } from 'react-detect-offline';
+
 import './App.css';
+import Page1 from './Page1';
+import Page2 from './Page2';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [page, setPage] = useState(1);
+	const [itemCount, setItemCount] = useState({
+		scanned: 0,
+		print: 0,
+		fail: 0,
+	});
+
+	return (
+		<div className='App'>
+			<Online>
+				{page === 1 ? (
+					<Page1 setItemCount={setItemCount} setPage={setPage} />
+				) : (
+					<Page2
+						setPage={setPage}
+						itemCount={itemCount}
+						setItemCount={setItemCount}
+					/>
+				)}
+			</Online>
+			<Offline>
+				<span className='offline'>
+					You're offline right now. Check your connection.
+				</span>
+			</Offline>
+		</div>
+	);
 }
 
 export default App;
