@@ -85,6 +85,12 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 			const jsonData = await response.json();
 			console.log('JSON', jsonData);
 
+            setItemCount({
+                scanned: jsonData?.scan_count,
+                print: jsonData?.print_count,
+                fail: jsonData?.error_count,
+            })
+            
 			if (jsonData.status === 'error') throw jsonData;
 
 			jsonData.color = `"${jsonData.color}"`;
@@ -101,11 +107,11 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 			// 	fail: jsonData?.num_failed,
 			// });
 
-            setItemCount({
-                scanned: jsonData?.scan_count,
-                print: jsonData?.print_count,
-                fail: jsonData?.error_count,
-            })
+            // setItemCount({
+            //     scanned: jsonData?.scan_count,
+            //     print: jsonData?.print_count,
+            //     fail: jsonData?.error_count,
+            // })
 			// setFormData((state) => {
 			// 	return {
 			// 		...state,
