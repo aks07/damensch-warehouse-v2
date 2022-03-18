@@ -95,11 +95,17 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 
 			setDownload({ show: true, data: [{ ...jsonData, ...dummyCsvFields }] });
 
-			setItemCount({
-				scanned: jsonData?.num_scan,
-				print: jsonData?.num_print,
-				fail: jsonData?.num_failed,
-			});
+			// setItemCount({
+			// 	scanned: jsonData?.num_scan,
+			// 	print: jsonData?.num_print,
+			// 	fail: jsonData?.num_failed,
+			// });
+
+            setItemCount({
+                scanned: jsonData?.scan_count,
+                print: jsonData?.print_count,
+                fail: jsonData?.error_count,
+            })
 			// setFormData((state) => {
 			// 	return {
 			// 		...state,
@@ -125,7 +131,7 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 				sku_code: skuCode,
 				bin_code: binCode,
 			};
-			console.lo('BIN CLEARED!!');
+			console.log('BIN CLEARED!!');
 			/* ADD MAIN CODE */
 			const response = await fetch(
 				'https://api.recoder.damensch.com/process/end-session',
