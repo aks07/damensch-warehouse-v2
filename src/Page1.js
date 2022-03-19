@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-const initForm = {
-	tableNo: localStorage.getItem('tableNo') || '',
-	skuCode: localStorage.getItem('skuCode') || '',
-	binCode: localStorage.getItem('binCode') || '',
-};
-
 const Page1 = ({setItemCount, setPage}) => {
+    const initForm = {
+        tableNo: localStorage.getItem('tableNo') || '',
+        skuCode: localStorage.getItem('skuCode') || '',
+        binCode: localStorage.getItem('binCode') || '',
+    };
 	const [formData, setFormData] = useState(initForm);
 	const [loading, setLoading] = useState(false);
 	const [errorMsg, setErrorMsg] = useState('');
