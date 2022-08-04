@@ -28,7 +28,7 @@ const Page1 = ({setItemCount, setPage}) => {
                 sku_code: formData.skuCode,
                 bin_code: formData.binCode
             }
-            const response = await fetch('https://api.recoder.damensch.com/process/start-session', {
+            const response = await fetch('https://barcode.damensch.com/process/start-session', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

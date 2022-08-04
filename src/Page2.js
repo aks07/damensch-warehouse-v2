@@ -66,13 +66,13 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 			};
 
 			// const response = await fetch(
-			// 	'https://api.recoder.damensch.com/process/dummy-success',
+			// 	'https://barcode.damensch.com/process/dummy-success',
 			// 	{
 			// const response = await fetch(
-			// 	'https://api.recoder.damensch.com/process/dummy-fail',
+			// 	'https://barcode.damensch.com/process/dummy-fail',
 			// 	{
 			const response = await fetch(
-				'https://api.recoder.damensch.com/process/recode',
+				'https://barcode.damensch.com/process/recode',
 				{
 					method: 'POST',
 					headers: {
@@ -140,7 +140,7 @@ const Page2 = ({ setPage, itemCount, setItemCount }) => {
 			console.log('BIN CLEARED!!');
 			/* ADD MAIN CODE */
 			const response = await fetch(
-				'https://api.recoder.damensch.com/process/end-session',
+				'https://barcode.damensch.com/process/end-session',
 				{
 					method: 'POST',
 					headers: {
